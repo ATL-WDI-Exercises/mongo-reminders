@@ -3,39 +3,11 @@ let conn = mongoose.connect('mongodb://localhost/reminders');
 let Author = require("./models/author");
 let Reminder = require("./models/reminder");
 
-console.log('Deleting old authors...');
-Author.remove({})
-.then( () => {
-  let authors = [
-    Author({name: "bob"}),
-    Author({name: "charlie"}),
-    Author({name: "tom"})
-  ];
-  let reminders = [
-    new Reminder({body: "reminder1!!"}),
-    new Reminder({body: "reminder2!!"}),
-    new Reminder({body: "reminder3!!"}),
-    new Reminder({body: "reminder4!!"}),
-    new Reminder({body: "reminder5!!"}),
-    new Reminder({body: "reminder6!!"})
-  ];
-
-  for(let i = 0; i < authors.length; i++) {
-    authors[i].reminders.push(reminders[i], reminders[i+3]);
-  }
-  console.log('Saving authors...');
-  return Author.create(authors)
-})
-.then(saved => {
-  console.log('Saved', saved.length, 'authors.');
-  return Author.find({});
-})
-.then(found => {
-  console.log('Authors Found:');
-  found.forEach(f => {
-    console.log(f.toString());
-  });
-  conn.disconnect();
-}, (err) => {
-  console.log('ERROR:', err);
-});
+// TODO: use the Mongoose API to do the following
+//  (1) remove all of the old authors from the DB
+//  (2) create some new authors with each author having some reminders
+//  (3) save the new authors (with their embedded reminders)
+//  (4) get all of the new authors from the DB and print them out along with
+//      their reminders. You may want to add a nice "toString" method to your
+//      AuthorSchema that returns a printable string containing the author and
+//      reminder information.

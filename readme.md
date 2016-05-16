@@ -10,5 +10,12 @@ Fork or Clone this repo.
 
 ```bash
 npm install
-node seeds.js
 ```
+
+## Add your schemas
+
+Edit `models/author.js` and `models/reminder.js` and add the schemas to those files.
+
+## Edit `seeds.js`
+
+Edit the `seeds.js` file and add the code to remove the old authors from the DB and create and save new authors. Each author should have some reminders embedded in the author document. Finally read the newly saved authors from the DB and print them out to the console.

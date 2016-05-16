@@ -1,7 +1,5 @@
 let mongoose = require('mongoose')
 
-let ReminderSchema = new mongoose.Schema({
-  body: String
-});
+// TODO: add your ReminderSchema here.
 
 module.exports = mongoose.model("Reminder", ReminderSchema);
